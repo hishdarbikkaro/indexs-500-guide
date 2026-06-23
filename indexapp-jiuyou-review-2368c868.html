@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九游娱乐 · 稳定指引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fce9b6 0%, #f7d49a 35%, #f2c08a 70%, #e8aa73 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+            color: #2b241c;
+        }
+
+        .page-wrapper {
+            max-width: 1120px;
+            width: 100%;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 245, 0.75);
+            backdrop-filter: blur(4px);
+            padding: 0.75rem 1.5rem;
+            border-radius: 60px;
+            box-shadow: 0 6px 18px rgba(140, 80, 30, 0.12);
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+        }
+
+        .nav-brand {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            color: #5f3c20;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4d341e;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.2rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #b27b4a;
+            color: #2c1a0c;
+        }
+
+        /* hero / 标语区 */
+        .hero {
+            background: rgba(255, 250, 240, 0.7);
+            backdrop-filter: blur(2px);
+            padding: 2.8rem 2.5rem;
+            border-radius: 48px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 12px 28px rgba(100, 60, 25, 0.12);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #3e2b18;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 680px;
+            margin: 0 auto;
+            color: #4e3a27;
+        }
+
+        .hero p a {
+            color: #754e2a;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 2px;
+            text-decoration-color: #c99a6b;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .hero p a:hover {
+            color: #3a2717;
+            text-decoration-color: #8b5d35;
+        }
+
+        /* 核心介绍卡片 */
+        .intro-card {
+            background: #fffcf5;
+            border-radius: 36px;
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 8px 24px rgba(110, 70, 30, 0.08);
+        }
+
+        .intro-card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #3f2c19;
+            border-left: 4px solid #dba978;
+            padding-left: 1rem;
+        }
+
+        .intro-card p {
+            margin-bottom: 0.9rem;
+            color: #3b2d1f;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 三个场景模块 */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin: 2.8rem 0 3rem;
+        }
+
+        .scene-card {
+            background: #fffcf5;
+            border-radius: 28px;
+            padding: 1.8rem 1.6rem 2rem;
+            box-shadow: 0 8px 20px rgba(130, 80, 30, 0.06);
+            transition: transform 0.2s ease, box-shadow 0.25s;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(130, 70, 20, 0.1);
+        }
+
+        .scene-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #4f3420;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .scene-card h3 span {
+            font-size: 1.5rem;
+            margin-right: 0.2rem;
+        }
+
+        .scene-card p {
+            color: #4b3a28;
+            font-size: 0.97rem;
+        }
+
+        .scene-card .scene-link {
+            display: inline-block;
+            margin-top: 0.9rem;
+            color: #754e2a;
+            text-decoration: none;
+            border: 1px solid #d6ad82;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 450;
+            background: rgba(245, 225, 200, 0.3);
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .scene-card .scene-link:hover {
+            background: #e5cbb0;
+            border-color: #b28057;
+        }
+
+        /* 常见说明 (FAQ 摘要) */
+        .faq-section {
+            background: #fffcf5;
+            border-radius: 36px;
+            padding: 2rem 2.5rem 2.4rem;
+            margin: 2.5rem 0 2rem;
+            box-shadow: 0 8px 24px rgba(110, 70, 30, 0.06);
+        }
+
+        .faq-section h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 1.4rem;
+            color: #3f2c19;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid #eddccb;
+            padding-bottom: 1rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-weight: 500;
+            font-size: 1.05rem;
+            color: #4f3420;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-answer {
+            color: #544233;
+            font-size: 0.95rem;
+        }
+
+        .faq-answer a {
+            color: #6a4a2b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #cfaa88;
+        }
+
+        .faq-answer a:hover {
+            color: #3d2a19;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            padding: 1.2rem 0.5rem;
+            color: #4d3824;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 235, 210, 0.5);
+        }
+
+        .footer-note a {
+            color: #5f3f24;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #bc9270;
+        }
+
+        /* 响应式 */
+        @media (max-width: 820px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .scenes-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .top-nav {
+                padding: 0.6rem 1.2rem;
+            }
+
+            .intro-card,
+            .hero,
+            .faq-section {
+                padding-left: 1.8rem;
+                padding-right: 1.8rem;
+            }
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .scenes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .intro-card,
+            .faq-section {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .hero {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- 顶部导航 -->
+        <nav class="top-nav">
+            <span class="nav-brand">◈ 九游</span>
+            <div class="nav-links">
+                <a href="#">首页</a>
+                <a href="#">场景</a>
+                <a href="#">说明</a>
+                <a href="#">关于</a>
+            </div>
+        </nav>
+
+        <!-- Hero / 标语 -->
+        <div class="hero">
+            <h1>一处安稳的入口</h1>
+            <p>
+                把页面当作一个安静的起点，从这里了解<a href="https://indexapp-jiuyou.com">九游娱乐</a>。
+                没有喧哗，只有持续运转的通道和清晰的指引。
+            </p>
+        </div>
+
+        <!-- 核心介绍 -->
+        <div class="intro-card">
+            <h2>关于这个页面</h2>
+            <p>
+                这里不是正式官网，而是一份轻量的导航式介绍。我们梳理了三个常见的场景片段，
+                以及一些使用过程中可能遇到的简要说明。如果你正在寻找一个相对稳定的浏览起点，
+                那么下面这些内容或许能提供一点方向感。
+            </p>
+            <p>
+                整个页面的构思来自对「稳定入口」的理解 —— 不追求堆叠信息，
+                而是把最核心的路径和概念摆在明处。你可以通过下文链接直接前往
+                <a href="https://indexapp-jiuyou.com">九游娱乐</a>，也可以先阅读场景模块，
+                对功能轮廓有一个大致的印象。
+            </p>
+        </div>
+
+        <!-- 三个场景模块 -->
+        <h2 style="font-weight:500; font-size:1.3rem; color:#3f2c19; margin-bottom:0.2rem; padding-left:0.2rem;">常见使用场景</h2>
+        <div class="scenes-grid">
+            <div class="scene-card">
+                <h3><span>①</span> 浏览与发现</h3>
+                <p>通过分类和推荐快速找到感兴趣的内容，无需反复跳转。页面结构简单，适合日常随手打开看看。</p>
+                <a href="https://indexapp-jiuyou.com" class="scene-link">九游娱乐</a>
+            </div>
+            <div class="scene-card">
+                <h3><span>②</span> 功能索引</h3>
+                <p>把常用模块整理成清晰的列表，节省翻找时间。无论你是新用户还是老访客，都能更快定位到目标位置。</p>
+                <a href="https://indexapp-jiuyou.com" class="scene-link">九游娱乐</a>
+            </div>
+            <div class="scene-card">
+                <h3><span>③</span> 信息参考</h3>
+                <p>聚合了一些常规说明与提示，方便你在需要的时候查阅。适合作为你使用过程中的辅助参考页。</p>
+                <a href="https://indexapp-jiuyou.com" class="scene-link">九游娱乐</a>
+            </div>
+        </div>
+
+        <!-- 常见说明 (FAQ 摘要) -->
+        <div class="faq-section">
+            <h2>一些常见说明</h2>
+            <div class="faq-item">
+                <div class="faq-question">▶ 页面入口是长期有效的吗？</div>
+                <div class="faq-answer">目前这个介绍页与主站保持同步更新，你可以通过它稳定地连接到 <a href="https://indexapp-jiuyou.com">九游娱乐</a>。建议将链接收藏，方便日后使用。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">▶ 场景卡片里的链接有什么用？</div>
+                <div class="faq-answer">每个场景卡片下方都放置了指向主站的链接，点击即可跳转到同一平台，只是从不同叙述角度切入，帮助你理解该场景下的使用方式。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">▶ 如果遇到加载问题该怎么办？</div>
+                <div class="faq-answer">建议先检查网络环境，或稍后再试。主站通常保持稳定运行，你也可以通过其他方式联系客服获取支持。本页面仅作为导航参考，不直接处理账户或技术问题。</div>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="footer-note">
+            <span>一个轻量的导航介绍 · 内容来源参考 <a href="https://indexapp-jiuyou.com">九游娱乐</a></span>
+        </div>
+    </div>
+</body>
+</html>
